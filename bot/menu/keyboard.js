@@ -4,7 +4,7 @@ const adminKeyboard = [
       text: "Users",
     },
     {
-      text: "Katalog",
+      text: "Catalog",
     },
   ],
 ];
@@ -12,7 +12,7 @@ const adminKeyboard = [
 const userKeyboard = [
   [
     {
-      text: "Katalog",
+      text: "Catalog",
     },
   ],
 ];
