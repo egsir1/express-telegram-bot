@@ -2,7 +2,11 @@ const { bot } = require("./bot");
 const { start, requestContact } = require("./helpers/start");
 const User = require("../model/user");
 const { getAllUsers } = require("./helpers/users");
-const { getAllCategories, newCategory } = require("./helpers/category");
+const {
+  getAllCategories,
+  newCategory,
+  saveCategory,
+} = require("./helpers/category");
 
 bot.on("message", async (msg) => {
   const chatId = msg.from.id;
@@ -24,11 +28,15 @@ bot.on("message", async (msg) => {
     }
 
     if (text === "Catalog") {
-      getAllCategories(msg);
+      getAllCategories(chatId);
     }
 
     if (user.action === "add_category") {
       newCategory(msg);
+    }
+
+    if (user.action.includes("edit_category-")) {
+      saveCategory(chatId, text);
     }
   }
 
